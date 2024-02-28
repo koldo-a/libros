@@ -6,7 +6,7 @@
 	<artifactId>libros</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	
+
 	<!-- INICIO -->
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -58,19 +58,45 @@
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.webjars/swagger-ui -->
-		
+
 		<!-- http://localhost:8080/libros/webjars/swagger-ui/5.10.3/ -->
 		<!-- /libros/openapi/uf2215.yaml -->
-		
+
 		<dependency>
 			<groupId>org.webjars</groupId>
 			<artifactId>swagger-ui</artifactId>
 			<version>5.10.3</version>
 		</dependency>
 
+		<!-- PARA JSP'S' -->
+		<!--
+		https://mvnrepository.com/artifact/org.apache.tomcat.embed/tomcat-embed-jasper -->
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<version>11.0.0-M16</version>
+		</dependency>
+
+		<!--
+		https://mvnrepository.com/artifact/jakarta.servlet.jsp/jakarta.servlet.jsp-api -->
+		<dependency>
+			<groupId>jakarta.servlet.jsp</groupId>
+			<artifactId>jakarta.servlet.jsp-api</artifactId>
+			<version>3.1.1</version>
+			<scope>provided</scope>
+		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
+		<dependency>
+			<groupId>jakarta.servlet</groupId>
+			<artifactId>jakarta.servlet-api</artifactId>
+			<version>6.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 	<!-- FIN -->
-	
+
 	<build>
 		<plugins>
 			<plugin>

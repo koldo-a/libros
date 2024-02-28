@@ -44,6 +44,25 @@ public class LibroAccesoDatos {
 		}
 	}
 	
+	public static ArrayList<LibroDTO> obtenerTodosLibros() {
+	    ArrayList<LibroDTO> libros = new ArrayList<LibroDTO>();
+
+	    try (Connection con = AccesoDatos.obtenerConexion();
+	         PreparedStatement pst = con.prepareStatement(SQL_SELECT);
+	         ResultSet rs = pst.executeQuery()) {
+
+	        while (rs.next()) {
+	            LibroDTO libro = new LibroDTO(rs.getLong("l.id"), rs.getString("l.isbn"), rs.getString("l.titulo"), null);
+
+	            libros.add(libro);
+	        }
+	        return libros;
+	    } catch (SQLException e) {
+			LOG.log(Level.SEVERE, "NO SE HAN PODIDO OBTENER LOS LIBROS sin SUS AUTORES", e);
+			throw new RuntimeException("Error en la select", e);
+		}
+	}
+	
 	public static ArrayList<LibroDTO> buscarPorTitulo(String titulo) {
 		var libros = new ArrayList<LibroDTO>();
 

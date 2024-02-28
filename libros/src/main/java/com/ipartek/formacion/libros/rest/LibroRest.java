@@ -15,6 +15,12 @@ public class LibroRest {
 	public ArrayList<LibroDTO> obtenerTodos() {
 		return LibroAccesoDatos.obtenerTodos();
 	}
+
+	@GET
+	@Path("/todos")
+	public ArrayList<LibroDTO> obtenerTodosLibros() {
+		return LibroAccesoDatos.obtenerTodosLibros();
+	}
 	
 	@GET
 	@Path("/buscar")

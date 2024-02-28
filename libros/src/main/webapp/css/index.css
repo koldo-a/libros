@@ -1,0 +1,61 @@
+/* Estilos para el cuerpo de la página */
+body {
+	background-color: #202124; /* Color de fondo oscuro */
+	color: #ffffff; /* Color de texto blanco */
+	font-family: Arial, sans-serif; /* Familia de fuente */
+}
+
+/* Estilos para los encabezados */
+h1, h2, h3 {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: #ffffff; /* Color de texto blanco */
+}
+
+/* Estilos para los enlaces */
+a {
+	color: #ffffff; /* Color de texto blanco */
+	text-decoration: none; /* Sin subrayado en los enlaces */
+}
+
+a:hover {
+	color: #dddddd; /* Color de texto gris claro al pasar el ratón */
+}
+
+/* Estilos para las listas no ordenadas */
+ul {
+	padding: 30px;
+	margin: 15px;
+	width: 50%; text-align : left;
+	display: flex;
+	flex-direction: column;
+	list-style-type: none;
+	text-align: left; /* Sin viñetas en las listas */
+}
+
+.wrapper {
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+/* Estilos para los elementos de lista */
+li {
+	align-items: center;
+	justify-content: center;
+	padding: 5px 0; /* Espaciado interno */
+	cursor: pointer;
+}
+
+li:hover {
+	color: #000000; /* Color de texto gris claro al pasar el ratón */
+}
+
+.titulo {
+	font-weight: 800;
+	
+}
+
+.autor {
+	color: #800000;
+}
