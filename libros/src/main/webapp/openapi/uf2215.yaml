@@ -1,0 +1,150 @@
+openapi: '3.0.2'
+info:
+  title: Libros
+  version: '1.0'
+servers:
+  - url: http://localhost:8080/libros/api/v1
+
+tags:
+  - name: autores
+  - name: libros
+paths:
+  /autores:
+    get:
+      tags:
+        - autores
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Autor'
+    post:
+      tags:
+        - autores
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Autor'
+        required: true
+      responses:
+        '201':
+          description: CREATED
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Autor'
+  /autores/{id}:
+    get:
+      tags:
+        - autores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Autor'
+        '404':
+          description: NOT FOUND
+    put:
+      tags:
+        - autores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Autor'
+        required: true
+      responses:
+        '200':
+          description: OK
+
+    delete:
+      tags:
+        - autores
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '204':
+          description: NO CONTENT
+  /libros:
+    get:
+      tags:
+       - libros
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Libro'
+  /libros/buscar:
+    get:
+      tags:
+      - libros
+      parameters:
+      - name: titulo
+        in: query
+        schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+                schema:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Libro'
+
+
+components:
+  schemas:
+    Autor:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        nombre:
+          type: string
+        apellidos:
+          type: string
+    Libro:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        isbn:
+          type: string
+        titulo:
+          type: string
+        autor:
+          $ref: '#/components/schemas/Autor'
